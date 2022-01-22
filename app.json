@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/classification/index",
     "pages/choiceness/index",
+    "pages/classification/index",
     "pages/finder/index",
     "pages/ucenter/index/index",
     "pages/search/index",
@@ -46,12 +46,6 @@
         "iconPath": "images/nav/select-off.png",
         "selectedIconPath": "images/nav/select-on.png",
         "text": "精选"
-      },
-      {
-        "pagePath": "pages/finder/index",
-        "iconPath": "images/nav/find-off.png",
-        "selectedIconPath": "images/nav/find-on.png",
-        "text": "发现"
       },
       {
         "pagePath": "pages/classification/index",

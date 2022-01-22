@@ -90,8 +90,9 @@ Page({
   },
   onShareAppMessage: function () {
     return {
-      title: wx.getStorageSync('shareProfile'),
-      path: '/pages/classification/index?inviter_id=' + wx.getStorageSync('uid')
+      title:wx.getStorageSync('shareProfile') || '欢迎来到本店' ,
+      path: '/pages/classification/index?inviter_id=' + wx.getStorageSync('uid'),
+      imageUrl:'https://dcdn.it120.cc/2022/01/21/2edb8bc0-f423-45fd-a535-ca47e15ae2ee.png',
     }
   },
   onReachBottom: function(){

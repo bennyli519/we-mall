@@ -125,6 +125,7 @@ Page({
     return {
       title: '"' + wx.getStorageSync('mallName') + '" ' + wx.getStorageSync('share_profile'),
       path: '/pages/classification/index?inviter_id=' + wx.getStorageSync('uid'),
+      imageUrl:'https://dcdn.it120.cc/2022/01/21/2edb8bc0-f423-45fd-a535-ca47e15ae2ee.png',
       success: function (res) {
         // 转发成功
       },
