@@ -49,12 +49,6 @@
         "text": "精选"
       },
       {
-        "pagePath": "pages/finder/index",
-        "iconPath": "images/nav/find-off.png",
-        "selectedIconPath": "images/nav/find-on.png",
-        "text": "发现"
-      },
-      {
         "pagePath": "pages/classification/index",
         "iconPath": "images/nav/classification-off.png",
         "selectedIconPath": "images/nav/classification-on.png",
