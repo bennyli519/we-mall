@@ -1,6 +1,6 @@
 /**index.wxss**/
 @import "../../templates/recommend-goods-item/recommend-goods-item.wxss";
-
+@import "../../templates/wxSearch/wxSearch.wxss";
 page {
   min-height: 100%;
   background-color: #fff;
@@ -154,4 +154,62 @@ page {
   position: fixed;
   top: 0;
   left: 0;
+}
+.search-view {
+  left: 0;
+  right: 0;
+  top: 100rpx;
+  z-index: 500;
+  width: 100%;
+  height: 100rpx;
+  /* background: gray; */
+  display: flex;
+  flex-direction: column;
+}
+
+.serarch-content {
+  /* position: fixed; */
+  top: 0;
+  z-index: 501;
+  width: 100%;
+  height: 70rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+}
+
+.search-icon-view{
+  width:70rpx;
+  height:70rpx;
+  background-color:white;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  border-top-left-radius: 10rpx;
+  border-bottom-left-radius: 10rpx;
+  
+}
+
+.search-icon {
+  margin-left: 15rpx;
+}
+
+.search-input {
+  flex: 1;
+  height: 70rpx;
+  font-size: 28rpx;
+  background-color: white;
+}
+
+.search-btn {
+  width: 130rpx;
+  height: 70rpx;
+  margin-left: 0;
+  background-color: blueviolet;
+  font-size: 28rpx;
+  border-radius: 0rpx;
+  /* border-bottom-left-radius: 0rpx; */
+  color: #fff;
+  border: none;
 }

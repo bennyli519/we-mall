@@ -1,4 +1,5 @@
 
+
 <view class="container">
   <!-- <view class="header" style='background: -webkit-linear-gradient(top, rgba({{bgRed}},{{bgGreen}},{{bgBlue}}, 1), rgba({{bgRed}},{{bgGreen}},{{bgBlue}}, 0.5))'>
     <view class='shop-Info'>
@@ -25,7 +26,7 @@
     <wxc-toast is-show="{{loadingFinish}}" icon="yes" icon-color="#FF0077" text="所有商品加载完成"> </wxc-toast>
 
     <scroll-view class="classify-container" scroll-y="true" scroll-with-animation="true">
-      <view class="classify {{classifyViewed==classify.id?'active':''}}" wx:for="{{categories}}" wx:for-item="classify" wx:key="id" data-id="{{classify.id}}" bindtap="tapClassify">
+      <view class="classify {{classifyViewed==classify.id?'active':''}}" wx:for="{{parentCategoriedList}}" wx:for-item="classify" wx:key="id" data-id="{{classify.id}}" bindtap="tapClassify">
         <view class="name {{classifyViewed==classify.id?'active':''}}">{{classify.name}}</view>
       </view>
     </scroll-view>
@@ -39,6 +40,12 @@
           <wxc-elip wx:if='{{goodsListCurrent.goods.length != 0}}'>{{goodsListCurrent.type}}</wxc-elip>
         </view>
         <view>
+          <view wx:if="{{currentSubCategorieList.length>0}}" class="sub-category-container">
+            <view class="category-wrapper"  wx:for="{{currentSubCategorieList}}" wx:key="id" wx:for-item="subItem" data-id='{{subItem.id}}' bindtap="toSubListTap">
+              <image class="sub-image" src="{{subItem.pic}}"/>
+              <view>{{subItem.name}}</view>
+            </view>
+          </view>
           <view class="goods" wx:for="{{goodsListCurrent.goods}}" wx:key="id" wx:for-item="item" data-id='{{item.id}}' bindtap="toDetailsTap">
             <image class="pic" src="{{item.pic}}">
               <!-- <image class='fresh-tag' src="/images/goodsDescription/fresh.png"></image> -->
@@ -49,8 +56,8 @@
                 <wxc-price class='price' value='{{item.minPrice}}'></wxc-price>
               </view>
             </view>
-            <view class='soldInfo'>
-              <wxc-label class="sold" wx:if="{{item.numberOrders == 0}}" type='fill'>新品上市</wxc-label>
+            <!-- <view class='soldInfo'>
+              <wxc-label class="sold" wx:if="{{item.numberOrders == 0}}" type='fill'>新品上市</wxc-label>                                                      
               <wxc-label class="sold" wx:if="{{item.numberOrders != 0}}">已售{{item.numberOrders}}份</wxc-label>
               <wxc-label class='star' style='position:absolute;left:380rpx;' type='fill' type-color='none' text-color='#666666'>
                 <block wx:for="{{item.starpic}}" wx:key="id" wx:for-item="star">
@@ -59,10 +66,10 @@
                 <text style='padding-left:10rpx;' wx:if="{{item.starscore}}" data-pingfen="{{item.starscore}}">{{item.starscore}}分</text>
                 <text style='padding-left:10rpx;' wx:else data-pingfen="{{item.starscore}}">0分</text>
               </wxc-label>
-            </view>
+            </view> -->
           </view>
 
-          <wxc-abnor type="SHOP" wx:if='{{goodsListCurrent.goods.length === 0}}' title='还没有添加' tip='稍后再来试试吧~' bind:abnortap="reLoad"></wxc-abnor>
+          <wxc-abnor type="SHOP" wx:if='{{!goodsListCurrent.goods.length&& !currentSubCategorieList.length}}' title='还没有添加' tip='稍后再来试试吧~' bind:abnortap="reLoad"></wxc-abnor>
           <wxc-loadmore is-end="{{true}}" icon="{{true}}" style="position: relative; bottom: 0rpx;"></wxc-loadmore>
 
         </view>

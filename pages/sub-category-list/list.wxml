@@ -1,0 +1,7 @@
+
+<import src="../../templates/recommend-goods-item/recommend-goods-item.wxml" />
+<scroll-view class="goods-container" >
+    <view class="goods-box" wx:for="{{goodsList}}" wx:key="id" wx:for-item="item" data-id="{{item.id}}" bindtap="toDetailsTap">
+        <template is="recommend-goods-item" data="{{item}}"> </template>
+      </view>
+</scroll-view>

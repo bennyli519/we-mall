@@ -1,3 +1,9 @@
+/*
+ * @Author: Benny
+ * @Date: 2022-01-16 00:39:33
+ * @Description: 
+ * @LastEditTime: 2022-01-23 11:26:10
+ */
 var app = getApp()
 const head = "https://api.it120.cc/"
 const projectName = app.globalData.subDomain

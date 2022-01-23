@@ -245,3 +245,17 @@ page {
   text-align: center;
 
 }
+
+.sub-category-container{
+  margin: 30rpx;
+  display: flex;
+  flex-direction: row;
+}
+.sub-category-container  .category-wrapper{
+  padding: 0 30rpx;
+}
+.sub-image{
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 100%
+}

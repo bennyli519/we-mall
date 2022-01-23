@@ -1,5 +1,6 @@
 const AUTH = require('../../utils/auth')
 var starscore = require("../../templates/starscore/starscore.js");
+var WxSearch = require('../../templates/wxSearch/wxSearch.js');
 var app = getApp();
 Page({
   data: {
@@ -26,12 +27,15 @@ Page({
       windowWidth: 0,
       windowHeight: 0,
     },
-    height: []
+    height: [],
+    keyword:'',
   },
   onLoad: function () {
     AUTH.authorize().then(res => {
       AUTH.bindSeller()
     })
+        //初始化的时候渲染wxSearchdata 第二个为你的search高度
+        WxSearch.init(this, 43, wx.getStorageSync('hotSearchWords').split(','));
     var that = this
     that.setData({
       goodsList: app.globalData.goodsList,
@@ -310,5 +314,54 @@ Page({
         url
       })
     }
-  }
+  },
+  toSearch: function (e) {
+    console.log(e)
+    wx.navigateTo({
+      url: '/pages/search/index?keyword=' + this.data.keyword,
+    })
+    console.log(e);
+  },
+  wxSearchFn: function (e) {
+    var that = this
+    that.toSearch();
+    WxSearch.wxSearchAddHisKey(that);
+
+  },
+  wxSearchInput: function (e) {
+    var that = this
+    WxSearch.wxSearchInput(e, that);
+
+    that.setData({
+      keyword: that.data.wxSearchData.value,
+    })
+  },
+  wxSerchFocus: function (e) {
+    var that = this
+    WxSearch.wxSearchFocus(e, that);
+  },
+  wxSearchBlur: function (e) {
+    var that = this
+    WxSearch.wxSearchBlur(e, that);
+  },
+  wxSearchKeyTap: function (e) {
+    var that = this
+    WxSearch.wxSearchKeyTap(e, that);
+
+    that.setData({
+      keyword: that.data.wxSearchData.value,
+    })
+  },
+  wxSearchDeleteKey: function (e) {
+    var that = this
+    WxSearch.wxSearchDeleteKey(e, that);
+  },
+  wxSearchDeleteAll: function (e) {
+    var that = this;
+    WxSearch.wxSearchDeleteAll(that);
+  },
+  wxSearchTap: function (e) {
+    var that = this
+    WxSearch.wxSearchHiddenPancel(that);
+  },
 })

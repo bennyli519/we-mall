@@ -16,6 +16,8 @@ Page(Object.assign({},{
     swiperCurrent: 0,
     selectCurrent: 0,
     categories: [],
+    parentCategoriedList:[],
+    currentSubCategorieList:[],
     activeCategoryId: null,
     goods: [],
     goodsList: [],
@@ -48,9 +50,13 @@ Page(Object.assign({},{
       })
     })
     const categories = await app.getGoodsCategory()
+    const parentCategoriedList = categories.filter(categoryItem=>!categoryItem.pid)
+    console.log('categoried',categories)
+    console.log('parentCategoriedList',parentCategoriedList)
     await app.getGoods(0)
     that.setData({
-      categories: categories,
+      categories, 
+      parentCategoriedList,
       goods: app.globalData.goods,
       goodsList: app.globalData.goodsList,
       onLoadStatus: app.globalData.onLoadStatus,
@@ -131,6 +137,12 @@ Page(Object.assign({},{
   tapClassify: function (e) {
     var that = this;
     var id = e.target.dataset.id;
+    //current selected sub category
+    const currentSubCategory = that.data.categories.filter(item=>item.pid === id)
+    console.log('currentSubCategory',currentSubCategory);
+    that.setData({
+      currentSubCategorieList:currentSubCategory
+    })
     if (id === that.data.classifyViewed){
       that.setData({
         scrolltop: 0,
@@ -160,6 +172,12 @@ Page(Object.assign({},{
       }
     }*/
 
+  },
+  //TO SUB-Category Products List
+  toSubListTap:function(e){
+    wx.navigateTo({
+      url:"/pages/sub-category-list/list?id=" +  e.currentTarget.dataset.id
+    })
   },
   //事件处理函数
   toDetailsTap: function (e) {

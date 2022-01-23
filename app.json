@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/choiceness/index",
     "pages/classification/index",
+    "pages/choiceness/index",
     "pages/finder/index",
     "pages/ucenter/index/index",
     "pages/search/index",
@@ -26,7 +26,8 @@
     "pages/fx/apply",
     "pages/fx/apply-status",
     "pages/fx/members",
-    "pages/fx/commisionLog"
+    "pages/fx/commisionLog",
+    "pages/sub-category-list/list"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -46,6 +47,12 @@
         "iconPath": "images/nav/select-off.png",
         "selectedIconPath": "images/nav/select-on.png",
         "text": "精选"
+      },
+      {
+        "pagePath": "pages/finder/index",
+        "iconPath": "images/nav/find-off.png",
+        "selectedIconPath": "images/nav/find-on.png",
+        "text": "发现"
       },
       {
         "pagePath": "pages/classification/index",

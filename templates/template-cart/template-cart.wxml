@@ -1,7 +1,8 @@
+
 <template name="no-goods">
-  <view class='text-highlight'>
+  <!-- <view class='text-highlight'>
     ◉12小时极速发货 　◉24小时无忧退款 　◉满48元免运费
-  </view>
+  </view> -->
 
   <view class="shop-cart-empty">
     <wxc-abnor type="CART" title='购物车空空如也~' bind:abnortap="toIndexPage"></wxc-abnor>
